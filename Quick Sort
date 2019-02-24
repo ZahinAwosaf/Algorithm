@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+#define mx 10
+using namespace std;
+int ara[mx];
+int partition1(int start,int end1)
+{
+    int pivot=ara[end1];
+    int pIndex=start;
+    for(int i=start;i<=(end1-1);i++)
+    {
+        if(ara[i]<=pivot) n
+        {
+            swap(ara[i],ara[pIndex]);
+            pIndex++;
+        }
+    }
+    swap(ara[pIndex],ara[end1]);
+    return pIndex;
+}
+void Quicksort(int start,int end1)
+{
+    if(start>=end1)
+    {
+        return;
+    }
+    else
+    {
+        int pIndex=partition1(start,end1);
+        Quicksort(start,pIndex-1);
+        Quicksort(pIndex+1,end1);
+    }
+}
+int main()
+{
+    //memset(ara,-1,sizeof(ara));
+    for(int i=0;i<mx;i++)
+    {
+        cin>>ara[i];
+    }
+    Quicksort(0,mx-1);
+    for(int i=0;i<mx;i++)
+    {
+        cout << ara[i] << " ";
+    }
+    return 0;
+}
